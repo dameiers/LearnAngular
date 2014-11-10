@@ -5,23 +5,19 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
     </head>
-    <body>
-        <div>
-            <label>Enter your name</label>
-            <input type='text' />
-            <h1> Hello Daniel!</h1>
+    <body ng-app>
+        <div >
+            <label>Enter your name:</label>
+            <input type='text' ng-model="name"/>
+            <h1> Hello {{name}}!</h1>
         </div>
         <div>
-            <h1> Daniel ToDo's</h1>
-            
+            <h1> <span ng-bind="name"></span> has the following ToDo's </h1>
+
             <ul>
-                <li>Learn Bower</li>
-                <li>Learn Angular Basic Concepts</li>
-                <li>Learn Angular Directives</li>
-                <li>Learn Angular Routing</li>
-                <li>Learn Grunt</li>
-                <li>Implement Html 5 SIP</li>
-                <li>Implement Html 5 Navigator</li>
+                <li ng-repeat="todo in ['Learn Bower', 'Learn Angular Basic Concepts',
+                    'Learn Angular Directives', 'Learn Angular Routing','Learn Grunt',
+                    'Implement Html 5 SIP','Implement Html 5 Navigator']">{{todo}}</li>
             </ul>
         </div>
     </body>
