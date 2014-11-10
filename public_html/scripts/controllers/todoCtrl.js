@@ -4,7 +4,8 @@ angular.module(
     'TodoCtrl',
     [
         '$scope',
-        function ($scope) {
+        'shortenFilter',
+        function ($scope, shortenFilter) {
             
             $scope.name='Mr. X';
             
@@ -31,7 +32,7 @@ angular.module(
             
             $scope.addTodo = function(){
                 $scope.todos.push({
-                    title: $scope.newTodo,
+                    title: shortenFilter($scope.newTodo,10),
                     done:false
                 });
                 $scope.newTodo = '';
