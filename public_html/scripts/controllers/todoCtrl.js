@@ -5,14 +5,17 @@ angular.module(
     [
         '$scope',
         'shortenFilter',
-        '$http',
-        function ($scope, shortenFilter, $http) {
+        '$resource',
+        function ($scope, shortenFilter, $resource) {
 
+            var todoResource;
+            
             $scope.name = 'Mr. X';
             $scope.todos=[];
-            $http.get('resources/todos/todos.json').success(function (data) {
-                $scope.todos = data;
-            });
+    
+            todoResource = $resource('resources/todos/:id.json');
+            
+            $scope.todos = todoResource.query();
 
             $scope.addTodo = function () {
                 $scope.todos.push({
