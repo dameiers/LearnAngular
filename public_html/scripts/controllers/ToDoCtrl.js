@@ -1,7 +1,6 @@
 angular.module(
-    'todoApp',
-    []
-    ).controller(
+    'de.cismet.todoApp.controllers'
+).controller(
     'TodoCtrl',
     [
         '$scope',
@@ -11,4 +10,4 @@ angular.module(
                 'Implement Html 5 SIP', 'Implement Html 5 Navigator'];
         }
     ]
-    )
+);
