@@ -1,0 +1,9 @@
+.done-true{
+    text-decoration: line-through;
+    color: grey;
+}
+
+.todoDone{
+    text-decoration: line-through;
+    color: grey;
+}

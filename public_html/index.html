@@ -4,24 +4,37 @@
         <title>TODO supply a title</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="styles/app.css" rel="stylesheet" type="text/css"/>
     </head>
-    <body ng-app="de.cismet.todoApp">
+    <body ng-app="de.cismet.todoApp" ng-controller="TodoCtrl">
         <div>
             <label>Enter your name:</label>
             <input type='text' ng-model="name"/>
             <h1> Hello {{name}}!</h1>
         </div>
-        <div ng-controller="TodoCtrl">
+        <div >
             <h1> <span ng-bind="name"></span> has the following ToDo's </h1>
+            <label>Search:</label>
+            <input type='text' ng-model='todoFilter'>
+            <br />
+            <label>{{remaining()}} of {{todos.length}} remaining</label> [<a ng-click='archive()'>archive</a>]
             <ul>
-                <li ng-repeat="todo in todos"> {{todo.title}}</li>
+                <li ng-repeat="todo in todos | filter:todoFilter">
+                    <input type="checkbox" ng-model="todo.done"> 
+                    <!--<span class="done-{{todo.done}}">-->
+                    <span ng-class="{'todoDone':todo.done}">
+                        {{todo.title | shorten:20}}
+                    </span>
+                </li>
             </ul>
             <input type="text" ng-model="newTodo"><button ng-click="addTodo()">Add</button>
             <!--<input type="text" ng-model="newTodo"><button ng-click="todos.push({title:newTodo})">Add</button>-->
         </div>
     </body>
-        <script src="bower_components/angular/angular.js" type="text/javascript"></script>
-        <script src="scripts/app.js" type="text/javascript"></script>
-        <script src="scripts/controllers/_module.js" type="text/javascript"></script>
-        <script src="scripts/controllers/ToDoCtrl.js" type="text/javascript"></script>
+    <script src="bower_components/angular/angular.js" type="text/javascript"></script>
+    <script src="scripts/app.js" type="text/javascript"></script>
+    <script src="scripts/controllers/_module.js" type="text/javascript"></script>
+    <script src="scripts/filters/_module.js" type="text/javascript"></script>
+    <script src="scripts/controllers/todoCtrl.js" type="text/javascript"></script>
+    <script src="scripts/filters/shortenerFilter.js" type="text/javascript"></script>
 </html>
