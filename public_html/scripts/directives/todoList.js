@@ -15,23 +15,12 @@ angular.module(
             return directiveDefinition;
         }
     ]
-).directive('myCustomerTemplate',
+).directive('myCustomer',
     [
         function () {
             return {
                 template: 'Name: {{customer.name}} Address: {{customer.address}}',
-                restrict:'EAC'
-            };
-        }
-    ]
-).directive('myCustomer',
-    [
-        function() {
-            return {
-                templateUrl: function(elem, attr){
-                    return 'templates/customer-'+attr.type+'.html';
-                },
-                restrict: 'A'
+                restrict:'E'
             };
         }
     ]

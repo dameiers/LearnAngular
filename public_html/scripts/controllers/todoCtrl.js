@@ -96,4 +96,26 @@ angular.module(
             };
         }
     ]
-    );
+).controller(
+    'NaomiCtrl', 
+    [
+        '$scope', 
+        function($scope) {
+            $scope.customer = {
+                name: 'Naomi',
+                address: '1600 Amphitheatre'
+            };
+        }
+    ]
+).controller(
+    'IgorCtrl', 
+    [
+        '$scope', 
+        function($scope) {
+            $scope.customer = {
+                name: 'Igor',
+                address: '123 Somewhere'
+            };
+        }
+    ]
+);
