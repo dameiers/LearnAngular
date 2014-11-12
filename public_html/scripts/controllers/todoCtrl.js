@@ -94,28 +94,36 @@ angular.module(
                 name: 'Naomi',
                 address: '1600 Amphitheatre'
             };
+            $scope.vojta = {
+                name: 'vojta',
+                address: 'vojta'
+            }
         }
     ]
-).controller(
-    'NaomiCtrl', 
+    ).controller(
+    'NaomiCtrl',
     [
-        '$scope', 
-        function($scope) {
+        '$scope',
+        function ($scope) {
             $scope.customer = {
                 name: 'Naomi',
                 address: '1600 Amphitheatre'
             };
+            $scope.vojta = {
+                name: 'naomi vojta',
+                address: 'naomi vojta'
+            }
         }
     ]
-).controller(
-    'IgorCtrl', 
+    ).controller(
+    'IgorCtrl',
     [
-        '$scope', 
-        function($scope) {
+        '$scope',
+        function ($scope) {
             $scope.customer = {
                 name: 'Igor',
                 address: '123 Somewhere'
             };
         }
     ]
-);
+    );

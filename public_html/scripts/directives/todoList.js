@@ -15,13 +15,28 @@ angular.module(
             return directiveDefinition;
         }
     ]
-).directive('myCustomer',
+    ).directive('myCustomerIsolated',
     [
         function () {
             return {
-                template: 'Name: {{customer.name}} Address: {{customer.address}}',
-                restrict:'E'
-            };
+                template: '<div>Name: {{customer.name}} Address: {{customer.address}}</div><div>Name: {{vojta.name}} Address: {{vojta.address}}</div>',
+                restrict: 'E',
+                scope: {
+                    customer:'=customerInfo'
+                }
+            }
+            ;
         }
     ]
-);
+    ).directive('myCustomer',
+    [
+        function () {
+            return {
+                template: '<div>Name: {{customer.name}} Address: {{customer.address}}</div><div>Name: {{vojta.name}} Address: {{vojta.address}}</div>',
+                restrict: 'E',
+                scope: true
+            }
+            ;
+        }
+    ]
+    );
