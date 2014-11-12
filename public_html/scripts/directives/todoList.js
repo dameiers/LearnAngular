@@ -19,7 +19,8 @@ angular.module(
     [
         function () {
             return {
-                template: 'Name: {{customer.name}} Address: {{customer.address}}'
+                template: 'Name: {{customer.name}} Address: {{customer.address}}',
+                restrict:'EAC'
             };
         }
     ]
@@ -29,7 +30,8 @@ angular.module(
             return {
                 templateUrl: function(elem, attr){
                     return 'templates/customer-'+attr.type+'.html';
-                }
+                },
+                restrict: 'A'
             };
         }
     ]
