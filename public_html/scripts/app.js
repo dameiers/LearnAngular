@@ -1,7 +1,8 @@
 angular.module(
     'de.cismet.todoApp',
     [
+        'ngResource',
         'de.cismet.todoApp.controllers',
-        'ngResource'
+        'de.cismet.todoApp.directives',
     ]
 );
