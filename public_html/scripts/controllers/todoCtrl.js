@@ -90,40 +90,11 @@ angular.module(
 
             };
 
-            $scope.customer = {
-                name: 'Naomi',
-                address: '1600 Amphitheatre'
-            };
-            $scope.vojta = {
-                name: 'vojta',
-                address: 'vojta'
+            $scope.customerName = 'Naomi';
+            $scope.customerAddress = '1600 Amphitheatre';
+            $scope.customer ={
+                name:'Naomi'
             }
-        }
-    ]
-    ).controller(
-    'NaomiCtrl',
-    [
-        '$scope',
-        function ($scope) {
-            $scope.customer = {
-                name: 'Naomi',
-                address: '1600 Amphitheatre'
-            };
-            $scope.vojta = {
-                name: 'naomi vojta',
-                address: 'naomi vojta'
-            }
-        }
-    ]
-    ).controller(
-    'IgorCtrl',
-    [
-        '$scope',
-        function ($scope) {
-            $scope.customer = {
-                name: 'Igor',
-                address: '123 Somewhere'
-            };
         }
     ]
     );

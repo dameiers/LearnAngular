@@ -15,24 +15,12 @@ angular.module(
             return directiveDefinition;
         }
     ]
-    ).directive('myCustomerIsolated',
-    [
-        function () {
-            return {
-                template: '<div>Name: {{customer.name}} Address: {{customer.address}}</div><div>Name: {{vojta.name}} Address: {{vojta.address}}</div>',
-                restrict: 'E',
-                scope: {
-                    customer:'=customerInfo'
-                }
-            }
-            ;
-        }
-    ]
     ).directive('myCustomer',
     [
         function () {
             return {
-                template: '<div>Name: {{customer.name}} Address: {{customer.address}}</div><div>Name: {{vojta.name}} Address: {{vojta.address}}</div>',
+                template: '<div>Name: <input ng-model="customerName"> Address: {{customerAddress}}</div>',
+//                template: '<div>Name: <input ng-model="customer.name"> Address: {{customerAddress}}</div>',
                 restrict: 'E',
                 scope: true
             }
