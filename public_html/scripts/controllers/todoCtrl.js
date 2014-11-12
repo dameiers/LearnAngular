@@ -18,9 +18,9 @@ angular.module(
                 return todoArr;
             };
 
-            transformRequest= function (data) {
+            transformRequest = function (data) {
                 var transformedData;
-                
+
                 transformedData = JSON.stringify(data, function (k, v) {
                     // we have to take care of angular properties by ourselves
                     if (k.substring(0, 1) === '$' && !(k === '$self' || k === '$ref')) {
@@ -33,7 +33,7 @@ angular.module(
             };
 
             todoResource = $resource('http://localhost:8890/CIDS.todos/:todoId', {
-                todoId:'@id',
+                todoId: '@id',
                 deduplicate: false,
                 level: '1',
                 omitNullValues: 'false'
@@ -45,7 +45,7 @@ angular.module(
                 },
                 'update': {
                     method: 'PUT',
-                    transformRequest:transformRequest
+                    transformRequest: transformRequest
                 }
             });
 
@@ -88,6 +88,11 @@ angular.module(
                 }
                 $scope.todos = newTodos;
 
+            };
+
+            $scope.customer = {
+                name: 'Naomi',
+                address: '1600 Amphitheatre'
             };
         }
     ]
