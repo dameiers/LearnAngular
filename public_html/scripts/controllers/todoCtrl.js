@@ -89,12 +89,9 @@ angular.module(
                 $scope.todos = newTodos;
 
             };
-
-            $scope.customerName = 'Naomi';
-            $scope.customerAddress = '1600 Amphitheatre';
-            $scope.customer ={
-                name:'Naomi'
-            }
+            
+            
+            $scope.format = 'M/d/yy h:mm:ss a';
         }
     ]
     );
