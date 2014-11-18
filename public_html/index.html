@@ -23,9 +23,11 @@
             <!--<input type="text" ng-model="newTodo"><button ng-click="todos.push({title:newTodo})">Add</button>-->
         </div>
         <hr>
-        <div>
+         <div>
             Date format: <input ng-model="format"> <hr/>
-            Current time is: <span my-current-time="format"></span>
+            <div my-current-time format="format" time="time">
+                The current time is: {{time}}
+            </div>
         </div>
     </body>
     <script src="bower_components/angular/angular.js" type="text/javascript"></script>
@@ -37,4 +39,5 @@
     <script src="scripts/controllers/todoCtrl.js" type="text/javascript"></script>
     <script src="scripts/filters/shortenerFilter.js" type="text/javascript"></script>
     <script src="scripts/directives/todoList.js" type="text/javascript"></script>
+    <script src="scripts/directives/myCurrentTime.js" type="text/javascript"></script>
 </html>
