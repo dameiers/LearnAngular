@@ -4,5 +4,7 @@ angular.module(
         'ngResource',
         'de.cismet.todoApp.controllers',
         'de.cismet.todoApp.directives',
+        'de.cismet.todoApp.filters',
+        'de.cismet.todoApp.services',
     ]
 );
