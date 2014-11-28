@@ -61,9 +61,15 @@ angular.module(
                 'displayInput': true,
             };
             
-            $timeout(function(){
-            $scope.knobVal = 50;    
-            },2000)
+            $scope.onAlertClose = function(){
+                console.log("my alert closed clicked");
+                
+            };
+            
+            $scope.onAlertOk = function(){
+                console.log("my alert ok clicked");
+                
+            };
 
         }
     ]
