@@ -27,8 +27,8 @@ angular.module(
                 //Event Listener for JQuery Knob Release Event
                 onJqueryKnobRelease = function (v) {
                     scope.knobData = v;
-//                    safeApply();
-                    scope.$apply();
+                    safeApply();
+//                    scope.$apply();
                 };
 
                 //initialize the options object for the jquery knob
@@ -53,7 +53,7 @@ angular.module(
                 };
 
                 updateKnobValue = function () {
-                    inputElem.val(scope.knobData);
+                    inputElem.val(scope.knobData).trigger('change');
                 };
 
                 knobOptions = getKnobOptions();
