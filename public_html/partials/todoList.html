@@ -4,8 +4,12 @@
 <br />
 <label>{{remaining()}} of {{todos.length}} remaining</label> [<a ng-click='archive()'>archive</a>]
 <ul>
-    <li ng-repeat="todo in todos | filter:todoFilter">
-        <a ng-href="#/todo/{{todo.id}}">{{todo.title}}</a>
+    <li ng-repeat="todo in todos| filter:todoFilter">
+        <a ng-href="#/todo/{{todo.id}}">
+            <span ng-class="{'todoDone':todo.done>=100}">
+                {{todo.title| shorten:20}}
+            </span>
+        </a>
     </li>
 </ul>
 <input type="text" ng-model="newTodo"><button ng-click="addTodo()">Add</button>

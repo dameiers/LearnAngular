@@ -4,14 +4,12 @@ angular.module(
     'TodoItemCtrl',
     [
         '$scope',
-        '$routeParams',
         'ToDoResource',
-        function ($scope, $routeParams, todoResource) {
+        'todo',
+        function ($scope,todoResource,todo) {
 
 
-            todoResource.get({todoId:$routeParams.id,level:3,deduplicate:true},function (data) {
-                $scope.todo = data;
-            });
+                $scope.todo = todo;
 
             $scope.knobVal = 88;
             $scope.knobOptions = {

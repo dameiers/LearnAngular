@@ -16,7 +16,12 @@ angular.module(
                 when(
                     '/todo/:id', {
                         controller: 'TodoItemCtrl',
-                        templateUrl: 'partials/todoItem.html'
+                        templateUrl: 'partials/todoItem.html',
+                        resolve:{
+                            'todo': ['$route','ToDoResource',function($route,todoRes){
+                                return todoRes.get({todoId:$route.current.params.id,level:3,deduplicate:true}).$promise;
+                            }]
+                        }
                     })
                 .when(
                     '/todoList', {
