@@ -1,9 +1,0 @@
-<ul>
-    <li ng-repeat="todo in todos| filter:todoFilter">
-        <input type="checkbox" ng-model="todo.done"> 
-        <!--<span class="done-{{todo.done}}">-->
-        <span ng-class="{'todoDone':todo.done}">
-            {{todo.title}}
-        </span>
-    </li>
-</ul>

@@ -27,8 +27,8 @@ angular.module(
                 //Event Listener for JQuery Knob Release Event
                 onJqueryKnobRelease = function (v) {
                     scope.knobData = v;
-//                    safeApply();
-                    scope.$apply();
+                    safeApply();
+//                    scope.$apply();
                 };
 
                 //initialize the options object for the jquery knob
@@ -53,13 +53,13 @@ angular.module(
                 };
 
                 updateKnobValue = function () {
-                    inputElem.val(scope.knobData);
+                    inputElem.val(scope.knobData).trigger('change');
                 };
 
                 knobOptions = getKnobOptions();
-                //we force the knop to horizontally align in its div...
-//                inputElem.find('div').css('display', 'block')
-//                    .css('margin', '0 auto');
+//                we force the knop to horizontally align in its div...
+                inputElem.find('div').css('display', 'block')
+                    .css('margin', '0 auto');
 
                 scope.$watch('knobData', function () {
                     updateKnobValue();

@@ -6,15 +6,14 @@ angular.module(
         '$scope',
         'shortenFilter',
         'ToDoResource',
-        '$timeout',
-        function ($scope, shortenFilter, todoResource, $timeout) {
+        function ($scope, shortenFilter, todoResource) {
 
 
             $scope.name = 'Mr. X';
             $scope.todos = [];
 
 
-            todoResource.query(function (data) {
+            todoResource.query({level:3,deduplicate:true},function (data) {
                 $scope.todos = data;
 //                $scope.firstTodo = $scope.todos[0];
 //                $scope.firstTodo.done = false;
@@ -22,10 +21,17 @@ angular.module(
             });
 
             $scope.addTodo = function () {
-                $scope.todos.push({
+                var newTodo, newId;
+                newId = $scope.todos.length+1;
+                newTodo = {
+                    $self:'/CIDS.todos/'+newId,
+                    id:newId,
                     title: shortenFilter($scope.newTodo, 10),
-                    done: false
-                });
+                    done: 0,
+                    category:null
+                }
+                $scope.todos.push(newTodo);
+                todoResource.update(newTodo);
                 $scope.newTodo = '';
             };
 
@@ -33,7 +39,7 @@ angular.module(
                 var i, remaining;
                 remaining = $scope.todos.length;
                 for (i = 0; i < $scope.todos.length; i++) {
-                    if ($scope.todos[i].done) {
+                    if ($scope.todos[i].done >= 100) {
                         remaining--;
                     }
                 }
@@ -60,15 +66,26 @@ angular.module(
                 'height': 80,
                 'displayInput': true,
             };
-            
-            $scope.onAlertClose = function(){
-                console.log("my alert closed clicked");
-                
+
+            $scope.deleteTodo = function (todoItem) {
+                var i, indexToRemove;
+                indexToRemove = -1
+                for (i = 0; i < $scope.todos.length; i++) {
+                    if ($scope.todos[i].$self === todoItem.$self) {
+                        indexToRemove = i;
+                        break;
+                    }
+                }
+                if (indexToRemove >= 0) {
+                    $scope.todos.splice(i, 1);
+                    todoResource.delete({todoId:todoItem.id});
+                }else{
+                    console.error("could not delete todo"+JSON.stringify(todoItem))
+                }
             };
-            
-            $scope.onAlertOk = function(){
-                console.log("my alert ok clicked");
-                
+
+            $scope.persistTodo = function (todoItem) {
+                todoItem.$update();
             };
 
         }

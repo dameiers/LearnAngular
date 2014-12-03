@@ -1,0 +1,52 @@
+<li style="list-style: none">
+    <div class="row">
+        <div class="col-lg-8">
+            <bs-panel type="{{todoItem.category.class|| 'panel-default'}}">
+                <bs-panel-header title="ToDo: {{todoItem.title}}">
+                    <span class="btn-invisible" ng-show="todoItem.done >= 100" ng-click="todoItem.done = 0">
+                        <i class="glyphicon glyphicon-check"></i>
+                    </span>
+                    <span  class="btn-invisible" ng-show="todoItem.done < 100" ng-click="todoItem.done = 100">
+                        <i class="glyphicon glyphicon-unchecked"></i>
+                    </span>
+                    <span class="btn-invisible" ng-click="onTodoPersist({todoItem: todoItem})" >
+                        <i class="glyphicon glyphicon-floppy-disk"></i>
+                    </span>
+                    <span class=" btn-invisible" ng-click="onTodoDelete({todoItem: todoItem})">
+                        <i class="glyphicon glyphicon-minus-sign"></i>
+                    </span>
+                </bs-panel-header>
+                <bs-panel-content>
+                    <div class="row">
+                        <div class="col-lg-4 col-md-6 col-sm-12">
+                            <knob knob-options="knobOptions" knob-data="todoItem.done"></knob>
+                        </div>
+                        <div class="col-lg-8 col-md-6 col-sm-12">
+                            <form class="form-horizontal" role="form">
+                                <div class="form-group">
+                                    <label for="inputEmail3" class="col-sm-2 control-label">Due Date</label>
+                                    <div class="col-sm-10">
+                                        <input type="date" class="form-control" placeholder="Due Date" ng-model="todoItem.dueDate" date-string-model>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="inputEmail3" class="col-sm-2 control-label">Category</label>
+                                    <div class="col-sm-10">
+                                        <bs-combo-box options="todoCategories" selected-item="todoItem.category" display-property ="name"></bs-combo-box>
+                                        <!--<select ng-options="category.name for category in todoCategories" ng-model="todoItem.category"></select>-->
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="inputPassword3" class="col-sm-2 control-label">Notes</label>
+                                    <div class="col-sm-10">
+                                        <textarea style="width:100%;min-height: 100px;" ng-model="todoItem.notes"></textarea>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </bs-panel-content>
+            </bs-panel>
+        </div>
+    </div>
+</li>
