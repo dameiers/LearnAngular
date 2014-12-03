@@ -16,12 +16,12 @@ angular.module(
                 when(
                     '/todo/:id', {
                         controller: 'TodoItemCtrl',
-                        templateUrl: 'partials/todoItem.html'
+                        templateUrl: 'views/todoItem.html'
                     })
                 .when(
                     '/todoList', {
                         controller: 'TodoCtrl',
-                        templateUrl: 'partials/todoList.html'
+                        templateUrl: 'views/todoList.html'
                     })
                 .otherwise(
                     {
