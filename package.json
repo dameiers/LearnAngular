@@ -1,0 +1,29 @@
+{
+  "name": "LearnAngular",
+  "version": "0.0.0",
+  "description": "",
+  "main": "index.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/dameiers/LearnAngular.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/dameiers/LearnAngular/issues"
+  },
+  "homepage": "https://github.com/dameiers/LearnAngular",
+  "devDependencies": {
+    "karma": "^0.12.28",
+    "karma-chrome-launcher": "^0.1.6",
+    "jasmine-core": "^2.1.3",
+    "karma-jasmine": "^0.3.2",
+    "karma-ng-html2js-preprocessor": "^0.1.2"
+  }
+}

@@ -7,7 +7,7 @@ angular.module(
         'shortenFilter',
         'ToDoResource',
         function ($scope, shortenFilter, todoResource) {
-
+//        function ($scope,shortenFilter) {
 
             $scope.name = 'Mr. X';
             $scope.todos = [];
@@ -15,10 +15,8 @@ angular.module(
 
             todoResource.query({level:3,deduplicate:true},function (data) {
                 $scope.todos = data;
-//                $scope.firstTodo = $scope.todos[0];
-//                $scope.firstTodo.done = false;
-//                $scope.firstTodo.$update();
             });
+            
 
             $scope.addTodo = function () {
                 var newTodo, newId;

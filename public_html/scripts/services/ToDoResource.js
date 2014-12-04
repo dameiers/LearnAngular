@@ -13,7 +13,6 @@ angular.module(
 
             transformRequest = function (data) {
                 var transformedData;
-
                 transformedData = JSON.stringify(data, function (k, v) {
                     // we have to take care of angular properties by ourselves
                     if (k.substring(0, 1) === '$' && !(k === '$self' || k === '$ref')) {
